@@ -20,6 +20,14 @@ import { useRouter } from 'next/dist/client/router';
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+  
+  const navigation = [
+    {name: 'Smestaj', href:'#'},
+    {name: 'Galerija', href:'#'},
+    {name: 'O nama', href:'#'},
+    {name: 'Postanite domacin', href:'#'},
+
+  ]
 
 const dropdown = [
     {
@@ -77,7 +85,7 @@ const dropdown = [
    
 
        return (
-        <header className="flex-shrink-0 relative items-center z-50 grid grid-flow-col grid-cols-1 sm:grid sm:grid-flow-col sm:grid-cols-1 bg-opacity-10 bg-white shadow-md py-5 px-5 md:px-8" >
+        <header className="flex-shrink-0 relative items-center z-50 grid grid-flow-col grid-cols-1 sm:grid sm:grid-flow-col sm:grid-cols-1  bg-white shadow-md py-5 px-5 md:px-8" >
         
         {/*left*/}
         <div className="relative flex items-center h-6 cursor-pointer my-auto">
@@ -149,135 +157,80 @@ onChange={(e) => setNoOfGuests(e.target.value)}
 
       
         {/*right*/}
-        <div className=" flex sm:flex items-center space-x-8 justify-end text-gray-400">
-        <div className=" md:ml-8 md:flex md:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <Link
-                    href="/ponuda"
-                    className="border-black text-black hover:border-gray-500 hover:text-gray-700 md:inline-flex inline-flex items-center px-1 pt-1 border-b text-sm font-medium"
-                  >
-                    Smeštaj
-                  </Link>
-                  <Link
-                    href="#"
-                    className="border-transparent text-black hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                  >
-                    Doživljaj
-                  </Link>
-                  <Link
-                    href="#"
-                    className="border-transparent text-black hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                  >
-                    Galerija
-                  </Link>
-                 
-         </div>
-            <p className="hidden md:inline cursor-pointer">Postanite domaćin</p>
-        <GlobeAltIcon  className="h-5 cursor-pointer"/>
+        <div className=" flex sm:flex items-center space-x-8 justify-end text-black-700">
+        <div className="hidden sm:block sm:ml-6">
+                  <div className="flex space-x-4">
+                    {navigation.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className={classNames(
+                          item.current ? 'bg-gray-300 text-black' : 'text-gray-900 hover:bg-gray-300 hover:text-gray-900 cursor-pointer ',
+                          'px-3 py-2 rounded-md text-sm font-medium'
+                        )}
+                        aria-current={item.current ? 'page' : undefined}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
 
-       
 <div>
-        <Menu as="div" className="flex-shrink-0 relative ml-2">
-              <div>
-                <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 ">
-                  <span className="flex w-full justify-between items-center">
-                  <span className="inline-flex h-6 w-6 rounded-full overflow-hidden bg-gray-100">
-        <svg className="h-full w-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+
+<Menu as="div" className="ml-3 relative">
+                  <div>
+                    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <span className="inline-block h-6 w-6 rounded-full overflow-hidden bg-gray-100">
+        <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
           <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       </span>
-                    <MenuIcon
-                      className="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </Menu.Button>
-              </div>
-              <Transition
-                 as={Fragment}
-                 enter="transition ease-out duration-100"
-                 enterFrom="transform opacity-0 scale-95"
-                 enterTo="transform opacity-100 scale-100"
-                 leave="transition ease-in duration-75"
-                 leaveFrom="transform opacity-100 scale-100"
-                 leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className="origin-top-right absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none z-50">
-                  <div className="py-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                         Registrujte se
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Prijavi me
-                        </a>
-                      )}
-                    </Menu.Item>
-                   
+                    </Menu.Button>
                   </div>
-
-                  <div className="py-1">
-                    <hr/>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Ugošćavajte u svom domu
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                         Organizujte doživljaj 
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                        Pomoć
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </div>
-                </Menu.Items>
-              </Transition>
-            </Menu>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Registrujte se
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Prijavi me
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                           Pomoc
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
         </div>
         </div>
         
