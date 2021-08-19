@@ -201,32 +201,38 @@ onChange={(e) => setNoOfGuests(e.target.value)}
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
+                           <div className="block px-4 py-2 text-sm text-gray-700">
                           <Link
                             href="/registracija"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Registrujte se
                           </Link>
+                          </div>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
+                           <div className="block px-4 py-2 text-sm text-gray-700">
                           <Link
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Prijavi me
                           </Link>
+                          </div>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
+                          <div className="block px-4 py-2 text-sm text-gray-700">
                           <Link
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                            Pomoc
                           </Link>
+                          </div>
                         )}
                       </Menu.Item>
                     </Menu.Items>
