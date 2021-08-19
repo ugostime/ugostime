@@ -23,15 +23,16 @@ function classNames(...classes) {
   
   const navigation = [
     {name: 'Smestaj', href:'#'},
-    {name: 'Galerija', href:'#'},
-    {name: 'O nama', href:'#'},
+    {name: 'Galerija', href:'/galerija/'},
+    {name: 'Kontakt', href:'/kontakt/'},
     {name: 'Postanite domacin', href:'#'},
 
   ]
 
+ 
 const dropdown = [
     {
-      name: 'Sign Up',
+      name: 'Sign Up', href:"/registracija"
     },
     {
       name: 'Log In',
@@ -123,7 +124,7 @@ minDate={new Date()}
 rangeColors={["#FD5B61"]}
 onChange={handleSelect}
 />
-<div className="flex items-center border-b mb-2 p-3 bg-white ">
+<div className="flex items-center border-b p-3 bg-white ">
   <h2 className="text-2x flex-grow font-semibold ">Broj gostiju</h2>
 <UserIcon className="h-5"/>
 <input value={noOfGuests}
@@ -158,7 +159,7 @@ onChange={(e) => setNoOfGuests(e.target.value)}
       
         {/*right*/}
         <div className=" flex sm:flex items-center space-x-8 justify-end text-black-700">
-        <div className="hidden sm:block sm:ml-6">
+        <div className="hidden md:block md:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
@@ -201,7 +202,7 @@ onChange={(e) => setNoOfGuests(e.target.value)}
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/registracija/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Registrujte se

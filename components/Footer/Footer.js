@@ -6,7 +6,7 @@ about: [
     { name: 'Galerija', href: '#' },
   ],
   customerService: [
-    { name: 'Kontakt', href: '#' },
+    { name: 'Kontakt', href: '/kontakt/' },
     { name: 'Shipping', href: '#' },
     { name: 'Returns', href: '#' },
     { name: 'Warranty', href: '#' },

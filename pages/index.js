@@ -14,7 +14,17 @@ export default function Home( props) {
       </Head>  
 
      <Header />
-      <Banner /> 
+     
+      <Banner>
+        <div className="absolute inset-0">
+        <img
+          src="https://tailwindui.com/img/ecommerce-images/home-page-01-feature-section-01.jpg"
+          alt=""
+          className="w-full h-full object-center object-cover"
+        />
+      </div>
+      </Banner> 
+    
 
     <main className='max-w-7x1 mx-auto px-8 sm:px-16'>
     
