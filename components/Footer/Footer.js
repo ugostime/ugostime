@@ -1,7 +1,7 @@
 const footerNavigation = {
 about: [
     { name: 'Kako ugosti.me funkcioniše', href: '#' },
-    { name: 'Vesti', href: '#' },
+    { name: 'Vesti', href: '/vesti/' },
     { name: 'O nama', href: '#' },
     { name: 'Galerija', href: '#' },
   ],
@@ -45,11 +45,11 @@ function Footer() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-gray-200">
-            <div className="pt-16 pb-20">
+        <div className="max-w-7xl mx-auto  px-2 sm:px-6 lg:px-4">
+          <div className="border-t p-4 border-gray-200">
+            <div className="pt-10 pb-10">
               
-              <div className="mt-16 max-w-5xl mx-auto xl:grid xl:grid-cols-2 xl:gap-8">
+              <div className="mt-10 max-w-5xl mx-auto xl:grid xl:grid-cols-2 xl:gap-8">
                 <div className="grid grid-cols-2 gap-8 xl:col-span-2">
                   <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
                     <div>
@@ -116,7 +116,7 @@ function Footer() {
                   </p>
                   <form className="mt-4 sm:mt-6 sm:flex">
                     <label htmlFor="email-address" className="sr-only">
-                      Email address
+                      Email adresa
                     </label>
                     <input
                       id="email-address"

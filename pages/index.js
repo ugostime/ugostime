@@ -5,7 +5,9 @@ import MediumCard from '../components/MediumCard';
 import Footer from '../components/Footer/Footer';
 
 
-export default function Home( props) {
+
+
+ function Home( {searchResults}) {
   return (
     <div className="">
       <Head>
@@ -17,11 +19,7 @@ export default function Home( props) {
      
       <Banner>
         <div className="absolute inset-0">
-        <img
-          src="https://tailwindui.com/img/ecommerce-images/home-page-01-feature-section-01.jpg"
-          alt=""
-          className="w-full h-full object-center object-cover"
-        />
+     
       </div>
       </Banner> 
     
@@ -31,6 +29,7 @@ export default function Home( props) {
       <section className='pt-6'>
       <MediumCard/>
       </section>
+      
 
   </main>
 
@@ -42,3 +41,17 @@ export default function Home( props) {
   );
 }
 
+export default Home
+
+
+export const getServerSideProps = async () => {
+  const searchResults = await fetch("https://jsonkeeper.com/b/WEGM").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      searchResults,
+    },
+  };
+};
