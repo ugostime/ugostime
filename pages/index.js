@@ -7,14 +7,9 @@ import Footer from '../components/Footer/Footer';
 
 
 
- function Home( {searchResults}) {
+ function Home( ) {
   return (
     <div className="">
-      <Head>
-        <title>Ugostime</title>
-        <link rel="icon" href="/favicon.ico"></link>
-      </Head>  
-
      <Header />
      
       <Banner>
@@ -45,7 +40,7 @@ export default Home
 
 
 export const getServerSideProps = async () => {
-  const searchResults = await fetch("https://jsonkeeper.com/b/WEGM").then(
+  const searchResults = await fetch("https://jsonkeeper.com/b/QJ6N").then(
     (res) => res.json()
   );
 

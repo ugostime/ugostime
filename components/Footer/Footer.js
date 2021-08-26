@@ -1,37 +1,33 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 const footerNavigation = {
 about: [
     { name: 'Kako ugosti.me funkcioniše', href: '#' },
     { name: 'Vesti', href: '/vesti/' },
     { name: 'O nama', href: '#' },
-    { name: 'Galerija', href: '#' },
+    { name: 'Iskustva', href: '#' },
   ],
   customerService: [
     { name: 'Kontakt', href: '/kontakt/' },
-    { name: 'Shipping', href: '#' },
-    { name: 'Returns', href: '#' },
-    { name: 'Warranty', href: '#' },
-    { name: 'Secure Payments', href: '#' },
+    { name: 'Opšti uslovi plaćanja', href: '#' },
+    { name: 'Povraćaj novca', href: '#' },
     { name: 'FAQ', href: '#' },
-    { name: 'Find a store', href: '#' },
+
   ],
   host: [
-    { name: '', href: '#' },
-    { name: 'Sustainability', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Careers', href: '#' },
-    { name: 'Terms & Conditions', href: '#' },
-    { name: 'Privacy', href: '#' },
+    { name: 'Saradnici', href: '#' },
+    { name: 'Registracija i prijava', href: '#' },
+   
   ],
   support: [
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Return Policy', href: '#' },
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Shipping Policy', href: '#' },
+    { name: 'Uslovi plaćanja', href: '#' },
+    { name: 'Opcije otkazivanja', href: '#' },
+    { name: 'Centar za pomoć', href: '#' },
   ],
   bottomLinks: [
-    { name: 'Accessibility', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Privatnost', href: '#' },
+    { name: 'Uslovi', href: '#' },
   ],
 };
 
@@ -152,7 +148,37 @@ function Footer() {
                   </a>
                 ))}
               </div>
+              <div className="flex items-center  ml-4 mt-1 grid-cols-3 gap-3">
+                <div className="">
+                <a href="https://www.facebook.com/"
+                      className="w-full inline-flex justify-center py-2 px-3  shadow-sm 
+                      bg-white text-xl font-medium text-red-400 hover:text-gray-400"
+                    >
+              <FontAwesomeIcon icon={faFacebook} />
+              </a>
+              </div>
+              <div>
+              <a href="https://twitter.com/"
+                      className="w-full inline-flex justify-center py-2 px-3  shadow-sm 
+                      bg-white text-xl font-medium text-red-400 hover:text-gray-400"
+                    >
+              <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              </div>
+              <div>
+              <a href="https://www.instagram.com/"
+                     className="w-full inline-flex justify-center py-2 px-3  shadow-sm 
+                     bg-white text-xl font-medium text-red-400 hover:text-gray-400"
+                   >
+            <FontAwesomeIcon icon={faInstagram} />
+            </a>
             </div>
+            </div>
+            </div>
+            
+            
+           
+           
           </div>
         </div>
       </footer>

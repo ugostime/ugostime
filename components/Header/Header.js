@@ -1,13 +1,9 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Head from 'next/head';
 import { Popover, Transition } from '@headlessui/react';
-import {GlobeAltIcon,
-MenuIcon, 
-UserCircleIcon,
-UserIcon,
+import {UserIcon,
 SearchIcon,
-XIcon,
-InboxIcon,} from '@heroicons/react/solid'
+} from '@heroicons/react/solid'
 import { Menu } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
@@ -23,30 +19,12 @@ function classNames(...classes) {
   
   const navigation = [
     {name: 'Smestaj', href:'#'},
-    {name: 'Galerija', href:'/galerija/'},
+    {name: 'Utisci', href:'/utisci/'},
     {name: 'Kontakt', href:'/kontakt/'},
     {name: 'Postanite domacin', href:'#'},
 
   ]
 
- 
-const dropdown = [
-    {
-      name: 'Sign Up', href:"/registracija"
-    },
-    {
-      name: 'Log In',
-    },
-    {
-      name: 'Host your home',
-    },
-    {
-      name: 'Host your experience',
-    },
-    {
-      name: 'Help',
-    },
-  ]
  
  function Header({placeholder}) {
    const [searchInput, setSearchInput] = useState("");
@@ -85,7 +63,13 @@ const dropdown = [
     };
    
 
-       return (
+       return ( 
+<div>
+        <Head title>
+        <title>Ugostime</title>
+        <link rel="icon" href="/favicon.ico"></link>
+      </Head>  
+         
         <header className="flex-shrink-0 relative items-center z-50 grid grid-flow-col grid-cols-1 sm:grid sm:grid-flow-col sm:grid-cols-1  bg-white shadow-md py-5 px-5 md:px-8" >
         
         {/*left*/}
@@ -98,7 +82,7 @@ const dropdown = [
 {/*middle*/}
 
 <div className="min-w-0 relative opacity-100  sm:flex sm:px-0 md:px-2 lg:px-0 xl:col-span-4">
-                  <div className="relative  items-center  z-50  md:border-2 rounded-full focus:border-gray-300 border-gray-300 py-2 md:shadow-sm overflow-visible bg-white">
+                  <div className="relative  items-center  z-50  md:border-2 rounded-full  border-gray-300 py-2 md:shadow-sm overflow-visible bg-white">
                     <div className="w-full">
                       <label htmlFor="search" className="sr-only">
                       </label>
@@ -244,8 +228,9 @@ onChange={(e) => setNoOfGuests(e.target.value)}
 
  
         </header>
+        </div>
     )
                           
 }
 
-export default Header
+export default Header;

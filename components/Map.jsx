@@ -24,7 +24,8 @@ const Map = ({ searchResults, className, dark }) => {
   const [selectedLocation, setSelectedLocation] = useState({
     description:
       "1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
-    img: "https://jsonkeeper.com/b/WEGM",
+    img: "https://jsonkeeper.com/b/QJ6N",
+    slug:"apartman-1",
     lat: 51.5421655,
     location: "Private room in center of London",
     long: -0.0022275,

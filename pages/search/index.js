@@ -1,13 +1,19 @@
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 import { format } from "date-fns";
-import InfoCard from "../components/InfoCard";
-import Map from "../components/Map";
+import InfoCard from "../../components/InfoCard";
+import Map from "../../components/Map";
+import Filteri from "../../components/Filteri";
+import data from "../../utils/data";
 
-const Search = ({ searchResults }) => {
+
+
+const Search = ({ searchResults}) => {
   const router = useRouter();
+  const [loadedProducts, setLoadedProducts] =useState([]);
 
   const { location, startDate, endDate, noOfGuests } = router.query;
 
@@ -15,6 +21,13 @@ const Search = ({ searchResults }) => {
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
 
   const range = `${formattedStartDate} - ${formattedEndDate}`;
+
+  useEffect(() => {
+    setLoadedProducts({searchResults});
+   
+  }, []);
+ 
+
 
   return (
     <div className="h-screen">
@@ -41,20 +54,25 @@ const Search = ({ searchResults }) => {
             <p className="button">Price</p>
             <p className="button">Rooms and Beds</p>
             <p className="button">More filters</p>
+            
+          </div>
+          <div>
+          <Filteri />
           </div>
 
           <div className="flex flex-col">
-            {searchResults.map(
-              ({ img, location, title, description, star, price, total }) => (
-                <InfoCard
-                  img={img}
-                  location={location}
-                  title={title}
-                  description={description}
-                  star={star}
-                  price={price}
-                  total={total}
-                  key={img}
+            {data.products.map(
+              ( products) => (
+                <InfoCard products={loadedProducts} 
+                  img={products.img}
+                  location={products.location}
+                  title={products.title}
+                  description={products.description}
+                  star={products.star}
+                  price={products.price}
+                  total={products.total}
+                  key={products.id}
+                  id={products.id}
                 />
               )
             )}
@@ -72,7 +90,7 @@ const Search = ({ searchResults }) => {
 export default Search;
 
 export const getServerSideProps = async () => {
-  const searchResults = await fetch("https://jsonkeeper.com/b/WEGM").then(
+  const searchResults = await fetch("https://jsonkeeper.com/b/QJ6N").then(
     (res) => res.json()
   );
 
