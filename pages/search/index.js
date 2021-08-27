@@ -71,7 +71,6 @@ const Search = ({ searchResults}) => {
                   star={products.star}
                   price={products.price}
                   total={products.total}
-                  key={products.id}
                   id={products.id}
                 />
               )
