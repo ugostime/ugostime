@@ -1,9 +1,10 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import AboutProduct from "../../components/AboutProduct";
 import {useRouter} from 'next/router';
 import data from '../../utils/data';
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 
 
 function classNames(...classes) {
