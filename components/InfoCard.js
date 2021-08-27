@@ -1,10 +1,6 @@
 import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
-import Image from "next/image";
-//import { images } from "../next.config";
-import home from '../public/home.jpg';
 import Link from "next/link";
-import { useRouter } from "next/router";
 import data from '../utils/data';
 
 

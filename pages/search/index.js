@@ -23,7 +23,7 @@ const Search = ({ searchResults}) => {
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   useEffect(() => {
-    setLoadedProducts({searchResults});
+    setLoadedProducts([]);
    
   }, []);
  
