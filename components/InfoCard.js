@@ -16,8 +16,9 @@ const InfoCard = ({
   return (
     <div>
       {data.products.map((product) => (
+        <div key={product.id}>
         <Link href={`/search/${product.slug}`} passHref>
-          <div key={product.id} className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
+          <div  className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
           >
             <div className="relative mb-2 h-48 sm:h-52 w-full sm:w-80 flex-shrink-0 flex items-center justify-center ">
               <img
@@ -53,7 +54,9 @@ const InfoCard = ({
               </div>
             </div>
           </div>
+
         </Link>
+        </div>
       ))}
     </div>
   );
