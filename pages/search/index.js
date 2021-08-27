@@ -59,11 +59,12 @@ const Search = ({ searchResults}) => {
           <div>
           <Filteri />
           </div>
-
-          <div className="flex flex-col">
-            {data.products.map(
+          {data.products.map(
               ( products) => (
+          <div key={products.id}  className="flex flex-col">
+           
                 <InfoCard products={loadedProducts} 
+                
                   img={products.img}
                   location={products.location}
                   title={products.title}
@@ -72,10 +73,12 @@ const Search = ({ searchResults}) => {
                   price={products.price}
                   total={products.total}
                   id={products.id}
+                  
                 />
-              )
-            )}
+            
           </div>
+            )
+            )}
         </section>
         <section className="hidden xl:inline-flex min-w-[600px] border-l-2 border-gray-300">
           <Map searchResults={searchResults} />

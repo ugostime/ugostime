@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
 import MediumCard from '../components/MediumCard';
@@ -39,14 +38,3 @@ import Footer from '../components/Footer/Footer';
 export default Home
 
 
-export const getServerSideProps = async () => {
-  const searchResults = await fetch("https://jsonkeeper.com/b/QJ6N").then(
-    (res) => res.json()
-  );
-
-  return {
-    props: {
-      searchResults,
-    },
-  };
-};
