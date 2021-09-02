@@ -2,7 +2,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import RegistrationForm from "../components/RegistrationForm";
 
-function registracija() {
+function Registracija() {
     return (
         <div>
 
@@ -15,4 +15,4 @@ function registracija() {
     )
 }
 
-export default registracija
+export default Registracija

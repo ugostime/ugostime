@@ -19,12 +19,9 @@ import Footer from '../components/Footer/Footer';
     
 
     <main className='max-w-7x1 mx-auto px-8 sm:px-16'>
-    
       <section className='pt-6'>
       <MediumCard/>
       </section>
-      
-
   </main>
 
   
@@ -35,6 +32,6 @@ import Footer from '../components/Footer/Footer';
   );
 }
 
-export default Home
+export default Home;
 
 

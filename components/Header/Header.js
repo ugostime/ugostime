@@ -12,14 +12,9 @@ import {
 } from "@heroicons/react/solid";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; //theme css file
-
-//import Search from '../../components/Search';
-
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; //theme css file
 import { DateRange } from "react-date-range";
 import { useRouter } from "next/router";
-//import InfoCard from './InfoCard';
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -66,13 +61,13 @@ function Header({ title, description, placeholder }) {
         key:'selection',
        };
 
-       const logoutClickHandler = () => {
+      /* const logoutClickHandler = () => {
         setAnchorEl(null);
         dispatch({ type: 'USER_LOGOUT' });
         Cookies.remove('userInfo');
         router.push('/');
   };
-
+*/
   return (
     <div className="flex-shrink-0 relative items-center z-50  sm:grid sm:grid-flow-col sm:grid-cols-1  bg-white shadow-md py-5 px-5 md:px-8">
       <Head>

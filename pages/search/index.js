@@ -10,13 +10,10 @@ import React from "react";
 
 
 
-const Search = ({ products})  => {
+const Search = ()  => {
   
   const router = useRouter();
- 
-
   const { location, startDate, endDate, noOfGuests } = router.query;
-
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
 
@@ -54,14 +51,12 @@ const Search = ({ products})  => {
           </div>
           
           <div   className="flex flex-col">
-       
-                <InfoCard />
-               
+          <InfoCard />
           </div>
             
         </section>
         <section className="hidden xl:inline-flex min-w-[600px] border-l-2 border-gray-300">
-          <Map searchResults={products} />
+          <Map />
         </section>
       </main>
       <Footer />
