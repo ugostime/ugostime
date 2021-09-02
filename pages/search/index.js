@@ -10,7 +10,7 @@ import React from "react";
 
 
 
-function Search ({ products}) {
+const Search = ({ products})  => {
   
   const router = useRouter();
  
