@@ -5,13 +5,12 @@ import { format } from "date-fns";
 import InfoCard from "../../components/InfoCard";
 import Map from "../../components/Map";
 import Filteri from "../../components/Filteri";
-
 import React from "react";
-import { useRef } from "react";
 
 
 
-const Search = ({ products})  => {
+
+function Search ({ products}) {
   
   const router = useRouter();
  
@@ -22,11 +21,6 @@ const Search = ({ products})  => {
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
 
   const range = `${formattedStartDate} - ${formattedEndDate}`;
-
-
-
-
-
 
   return (
     <div className="h-screen">
