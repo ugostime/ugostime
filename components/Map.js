@@ -2,10 +2,9 @@ import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { getCenter } from "geolib";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
-import Image from "next/image";
-import home from '../public/home.jpg';
+
 import data from '../utils/data';
-//import data from '../public/data.json';
+
 
 
 const Map = ({ results, className, dark }) => {
@@ -22,7 +21,7 @@ const Map = ({ results, className, dark }) => {
     zoom: 11,
   });
 
- // console.log(results);
+  console.log(results);
 
   const [selectedLocation, setSelectedLocation] = useState({
     description:

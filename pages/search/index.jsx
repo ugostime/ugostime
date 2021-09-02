@@ -6,11 +6,12 @@ import InfoCard from "../../components/InfoCard";
 import Map from "../../components/Map";
 import Filteri from "../../components/Filteri";
 import React from "react";
+import data from "../../utils/data";
 
 
 
 
-const Search = ()  => {
+const Search = ({searchResults})  => {
   
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
@@ -51,12 +52,16 @@ const Search = ()  => {
           </div>
           
           <div   className="flex flex-col">
+         
+            
           <InfoCard />
+          
+
           </div>
             
         </section>
         <section className="hidden xl:inline-flex min-w-[600px] border-l-2 border-gray-300">
-          <Map />
+          <Map searchResults={searchResults}/>
         </section>
       </main>
       <Footer />

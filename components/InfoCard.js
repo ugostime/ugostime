@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import data from "../utils/data";
 
-
+/*
 const allProducts =  {
   products: [
     {
@@ -327,19 +327,19 @@ const allProducts =  {
       lat: 51.521245,
     },
   ],
-};
+};*/
 
 const InfoCard =() => {
   return (
     <div>
-     {allProducts.products.filter(product => product.location.toLowerCase().includes('london')).map(
+     {data.products.filter(product => product.location.toLowerCase().includes('london')).map(
               ( (filteredProduct) => (
      
        
-        <div className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
+        <div key={filteredProduct.id} className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
         
         > <Link href={`/search/${filteredProduct.slug}`} passHref>
-            <div key={filteredProduct.id}  className="relative mb-2 h-48 sm:h-52 w-full sm:w-80 flex-shrink-0 flex items-center justify-center ">
+            <div   className="relative mb-2 h-48 sm:h-52 w-full sm:w-80 flex-shrink-0 flex items-center justify-center ">
               <img
               key={filteredProduct.id}
                 src={filteredProduct.img}
