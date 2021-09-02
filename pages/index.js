@@ -2,7 +2,7 @@ import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
 import MediumCard from '../components/MediumCard';
 import Footer from '../components/Footer/Footer';
-
+import React from "react";
 
 
 

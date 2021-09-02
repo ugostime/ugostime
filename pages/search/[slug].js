@@ -166,18 +166,3 @@ const allProducts = data;
 }
 
 export default SearchExample;
-/*
-export const getServerSideProps = async (context) => {
-    /*const searchId = context.params.searchId;
-    console.log(searchId);
-    const searchResults = await fetch("https://jsonkeeper.com/b/QJ6N").then(
-      (res) => res.json()
-    );
-  
-    return {
-      props: {
-       
-        searchResults,
-      },
-    };
-  }; */

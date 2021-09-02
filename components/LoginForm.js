@@ -3,33 +3,10 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { useState } from "react";
-import { useContext } from "react";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 
 function LoginForm() {
- /*   const router = useRouter;
-    const {state, dispatch} = useContext(DataInfo);
-    const {userInfo} =state;
-   useEffect(() =>{
-       if(userInfo){
-           router.push('/');
-       }
-   }, []);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const submitHandler = (e) =>{
-        e.preventDefault();
-        try{
-            const {data} = data.users.map(email, password); 
-        
-        dispatch({type: 'USER_LOGIN', payload: data});
-        alert('success login');
-    } catch (err) {
-        alert(err.response.data ? err.response.data.message : err.message)
-    }
-};*/
+
   return (
     <div className="min-h-screen bg-white flex">
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
