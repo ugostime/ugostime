@@ -5,13 +5,16 @@ import { format } from "date-fns";
 import InfoCard from "../../components/InfoCard";
 import Map from "../../components/Map";
 import Filteri from "../../components/Filteri";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import data from "../../utils/data";
 
 
 
 
 const search = ({searchResults})  => {
+  
+  const [loadedProducts, setLoadedProducts] = useState([]);
+
   
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
@@ -20,6 +23,12 @@ const search = ({searchResults})  => {
   const formattedEndDate = format(new Date(endDate), "MM/dd/yyyy");
 
   const range = `${formattedStartDate} - ${formattedEndDate}`;
+
+  useEffect(() => {
+    setLoadedProducts([]);
+   
+  }, []);
+ 
 
   console.log(formattedEndDate)
   return (

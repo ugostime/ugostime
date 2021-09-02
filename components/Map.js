@@ -7,7 +7,7 @@ import data from '../utils/data';
 
 
 
-const Map = ({ results, className, dark }) => {
+const Map = ({ searchResults, className, dark }) => {
   const coordinates = data.products.map((result) => ({
     latitude: result.lat,
     longitude: result.long,
@@ -21,7 +21,7 @@ const Map = ({ results, className, dark }) => {
     zoom: 11,
   });
 
-  console.log(results);
+  console.log(searchResults);
 
   const [selectedLocation, setSelectedLocation] = useState({
     description:
