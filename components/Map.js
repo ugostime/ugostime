@@ -81,7 +81,7 @@ const Map = ({ results, className, dark }) => {
                 src={result.img}
                 height="170px"
                 width="150px"
-                objectFit="cover"
+                objectfit="cover"
               />
               <br />
               <span className="text-md font-mono font-medium">

@@ -11,15 +11,17 @@ import data from "../../utils/data";
 
 
 
-const Search = ({searchResults})  => {
+const search = ({searchResults})  => {
   
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
-  const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
-  const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
+
+  const formattedStartDate = format(new Date(startDate), "MM/dd/yyyy");
+  const formattedEndDate = format(new Date(endDate), "MM/dd/yyyy");
 
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
+  console.log(formattedEndDate)
   return (
     <div className="h-screen">
       <Header title="Pretraga" placeholder={`${location} | ${range} | ${noOfGuests}`} />
@@ -69,4 +71,4 @@ const Search = ({searchResults})  => {
   );
 };
 
-export default Search;
+export default search;
