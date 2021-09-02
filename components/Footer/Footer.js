@@ -17,7 +17,7 @@ about: [
   ],
   host: [
     { name: 'Saradnici', href: '#' },
-    { name: 'Registracija i prijava', href: '#' },
+    { name: 'Registracija i prijava', href: '/registracija/' },
    
   ],
   support: [
@@ -150,6 +150,7 @@ function Footer() {
               </div>
               <div className="flex items-center  ml-4 mt-1 grid-cols-3 gap-3">
                 <div className="">
+
                 <a href="https://www.facebook.com/"
                       className="w-full inline-flex justify-center py-2 px-3  shadow-sm 
                       bg-white text-xl font-medium text-red-400 hover:text-gray-400"

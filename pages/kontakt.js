@@ -7,7 +7,7 @@ import Header from "../components/Header/Header";
         return (
 
           <div>
-              <Header />
+              <Header title="Kontakt" />
 
               <div>
                   <ContactForm/>

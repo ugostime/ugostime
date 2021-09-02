@@ -4,9 +4,12 @@ import { getCenter } from "geolib";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import home from '../public/home.jpg';
+import data from '../utils/data';
+//import data from '../public/data.json';
 
-const Map = ({ searchResults, className, dark }) => {
-  const coordinates = searchResults.map((result) => ({
+
+const Map = ({ results, className, dark }) => {
+  const coordinates = data.products.map((result) => ({
     latitude: result.lat,
     longitude: result.long,
   }));
@@ -19,7 +22,7 @@ const Map = ({ searchResults, className, dark }) => {
     zoom: 11,
   });
 
-  console.log(searchResults);
+ // console.log(results);
 
   const [selectedLocation, setSelectedLocation] = useState({
     description:
@@ -49,7 +52,7 @@ const Map = ({ searchResults, className, dark }) => {
       height="100%"
       className={className}
     >
-      {searchResults.map((result) => (
+      {data.products.map((result) => (
         <div key={result.long}>
           <Marker
             longitude={result.long}

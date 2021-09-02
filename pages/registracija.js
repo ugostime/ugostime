@@ -6,7 +6,7 @@ function registracija() {
     return (
         <div>
 
-            <Header/>
+            <Header title="Registracija"/>
             <div>
                 <RegistrationForm />
             </div>

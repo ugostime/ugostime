@@ -1,19 +1,20 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { useEffect, useState } from "react";
-
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import InfoCard from "../../components/InfoCard";
 import Map from "../../components/Map";
 import Filteri from "../../components/Filteri";
-import data from "../../utils/data";
+
+import React from "react";
+import { useRef } from "react";
 
 
 
-const Search = ({ searchResults}) => {
+const Search = ({ products})  => {
+  
   const router = useRouter();
-  const [loadedProducts, setLoadedProducts] =useState([]);
+ 
 
   const { location, startDate, endDate, noOfGuests } = router.query;
 
@@ -22,16 +23,14 @@ const Search = ({ searchResults}) => {
 
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-  useEffect(() => {
-    setLoadedProducts([]);
-   
-  }, []);
- 
+
+
+
 
 
   return (
     <div className="h-screen">
-      <Header placeholder={`${location} | ${range} | ${noOfGuests}`} />
+      <Header title="Pretraga" placeholder={`${location} | ${range} | ${noOfGuests}`} />
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs font-semibold mb-2">
@@ -59,29 +58,16 @@ const Search = ({ searchResults}) => {
           <div>
           <Filteri />
           </div>
-          {data.products.map(
-              ( products) => (
-          <div key={products.id}  className="flex flex-col">
-           
-                <InfoCard products={loadedProducts} 
-                
-                  img={products.img}
-                  location={products.location}
-                  title={products.title}
-                  description={products.description}
-                  star={products.star}
-                  price={products.price}
-                  total={products.total}
-                  id={products.id}
-                  
-                />
-            
+          
+          <div   className="flex flex-col">
+       
+                <InfoCard />
+               
           </div>
-            )
-            )}
+            
         </section>
         <section className="hidden xl:inline-flex min-w-[600px] border-l-2 border-gray-300">
-          <Map searchResults={searchResults} />
+          <Map searchResults={products} />
         </section>
       </main>
       <Footer />
@@ -90,15 +76,3 @@ const Search = ({ searchResults}) => {
 };
 
 export default Search;
-
-export const getServerSideProps = async () => {
-  const searchResults = await fetch("https://jsonkeeper.com/b/QJ6N").then(
-    (res) => res.json()
-  );
-
-  return {
-    props: {
-      searchResults,
-    },
-  };
-};

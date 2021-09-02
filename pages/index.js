@@ -9,7 +9,7 @@ import Footer from '../components/Footer/Footer';
  function Home( ) {
   return (
     <div className="">
-     <Header />
+     <Header title="Početna"/>
      
       <Banner>
         <div className="absolute inset-0">
