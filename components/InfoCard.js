@@ -338,7 +338,7 @@ const InfoCard =() => {
        
         <div key={filteredProduct.id} className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
         
-        > <Link key="search-3" href={`/search/${filteredProduct.slug}`} >
+        > <Link  href={`/search/${filteredProduct.slug}`} >
             <div   className="relative mb-2 h-48 sm:h-52 w-full sm:w-80 flex-shrink-0 flex items-center justify-center ">
               <img
               key={filteredProduct.id}

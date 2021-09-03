@@ -10,8 +10,7 @@ import React, {useEffect, useState} from "react";
 
 
 
-
-const search = ({searchResults})  => {
+function Search ({searchResults}) {
   
   const [loadedProducts, setLoadedProducts] = useState([]);
 
@@ -80,4 +79,4 @@ const search = ({searchResults})  => {
   );
 };
 
-export default search;
+export default Search;

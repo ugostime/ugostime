@@ -26,7 +26,7 @@ const navigation = [
   { name: "Postanite domacin", href: "#" },
 ];
 
-function Header({ title, description, placeholder }) {
+function Header({ title, placeholder }) {
   const [mesto, setMesto] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -71,7 +71,7 @@ function Header({ title, description, placeholder }) {
     <div className="flex-shrink-0 relative items-center z-50  sm:grid sm:grid-flow-col sm:grid-cols-1  bg-white shadow-md py-5 px-5 md:px-8">
       <Head>
       <title>{title ? `${title} - Ugostime` : 'Ugostime'}</title>
-        {description && <meta name="description" content={description}></meta>}
+      
       </Head>
 
   
