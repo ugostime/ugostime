@@ -64,7 +64,7 @@ function Search ({searchResults}) {
           <div   className="flex flex-col">
          
             
-          <InfoCard />
+          <InfoCard searchResults={loadedProducts}  />
           
 
           </div>
@@ -80,3 +80,14 @@ function Search ({searchResults}) {
 };
 
 export default Search;
+export const getServerSideProps = async () => {
+  const searchResults = await fetch("https://jsonkeeper.com/b/FH1Q").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      searchResults,
+    },
+  };
+};

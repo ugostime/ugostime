@@ -384,7 +384,7 @@ export default InfoCard;
 /*
 
 export const getServerSideProps = async () => {
-  const searchResults = await fetch("https://jsonkeeper.com/b/WEGM").then(
+  const searchResults = await fetch("https://jsonkeeper.com/b/FH1Q").then(
     (res) => res.json()
   );
 
