@@ -1,4 +1,4 @@
-import { getAuth } from '@firebase/auth';
+/*import { getAuth } from '@firebase/auth';
 import React from 'react';
 import  StyledFirebaseAuth  from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
@@ -27,4 +27,4 @@ function SignInScreen(){
     )
 }
 
-export default SignInScreen;
+export default SignInScreen;*/
