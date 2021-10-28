@@ -2,7 +2,7 @@ import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import React from "react";
-import data from "../utils/data";
+
 
 /*
 const allProducts =  {
@@ -329,19 +329,20 @@ const allProducts =  {
   ],
 };*/
 
-const InfoCard =() => {
+const InfoCard =({searchResults, searchMesto}) => {
+  
   return (
     <div>
-     {data.products.filter(product => product.location.toLowerCase().includes('london')).map(
-              ( (filteredProduct) => (
+     {searchResults.filter(product => product.location.toLowerCase().includes("london")).map(
+              ( (filteredProduct, card_id) => (
      
        
-        <div key={filteredProduct.id} className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
+        <div key={card_id.id} className="flex flex-col sm:flex-row py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition transform duration-200 ease-out first:border-t last:mb-8 rounded-b-xl"
         
         > <Link  href={`/search/${filteredProduct.slug}`} >
             <div   className="relative mb-2 h-48 sm:h-52 w-full sm:w-80 flex-shrink-0 flex items-center justify-center ">
               <img
-              key={filteredProduct.id}
+              
                 src={filteredProduct.img}
                 layout="fill"
                 className="rounded-2xl"

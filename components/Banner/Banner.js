@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import React from "react";
 
 
 
@@ -6,9 +6,9 @@ function Banner() {
     return (
 <div className="flex">  
         <div className="absolute text-black mt-20 items-center  w-full text-center  z-40 " >
-            <p className="text-sm  mb-2 sm:text-lg">Not sure where to go? Perfect.</p>
+            <p className="text-sm  mb-2 sm:text-lg">Ako želite da vas ugostimo</p>
         
-        <button className='text-purple-500 bg-white px-10 py-4 shadow-md mb-4 rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150'>I'm flexible</button>
+        <button className='text-purple-500 bg-white px-10 py-4 shadow-md mb-4 rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150'>Prijavi se</button>
         </div>
         <div className="w-full h-full relative opacity-90">
               <img

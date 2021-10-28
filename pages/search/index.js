@@ -5,15 +5,14 @@ import { format } from "date-fns";
 import InfoCard from "../../components/InfoCard";
 import Map from "../../components/Map";
 import Filteri from "../../components/Filteri";
-import React, {useEffect, useState} from "react";
+import React  from "react";
 //import data from "../../utils/data";
+
 
 
 
 function Search ({searchResults}) {
   
-  const [loadedProducts, setLoadedProducts] = useState([]);
-
   
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
@@ -23,13 +22,9 @@ function Search ({searchResults}) {
 
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-  useEffect(() => {
-    setLoadedProducts([]);
-   
-  }, []);
+
  
 
-  console.log(formattedEndDate)
   return (
     <div className="h-screen">
       <Header title="Pretraga" placeholder={`${location} | ${range} | ${noOfGuests}`} />
@@ -50,21 +45,19 @@ function Search ({searchResults}) {
             Stays in {location}
           </h1>
           <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
-            <p className="button">Cancellation Flexibility</p>
+            
+            <a className="button">
+              Cancellation Flexibility</a>
             <p className="button">Type of Places</p>
             <p className="button">Price</p>
             <p className="button">Rooms and Beds</p>
             <p className="button">More filters</p>
-            
-          </div>
-          <div>
-          <Filteri />
           </div>
           
           <div   className="flex flex-col">
          
             
-          <InfoCard searchResults={loadedProducts}  />
+          <InfoCard searchResults={searchResults}  />
           
 
           </div>

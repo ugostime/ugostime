@@ -5,7 +5,12 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 
-function LoginForm() {
+
+
+
+export default function LoginForm() {
+
+  
 
   return (
     <div className="min-h-screen bg-white flex">
@@ -91,13 +96,13 @@ function LoginForm() {
             </div>
 
             <div className="mt-6">
-              <form action="#" method="POST" className="space-y-6">
+              <form action="#" method="POST" className="space-y-6"  >
                 <div>
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    E-mail adresa
+                  Email
                   </label>
                   <div className="mt-1">
                     <input
@@ -136,7 +141,7 @@ function LoginForm() {
                       id="remember-me"
                       name="remember-me"
                       type="checkbox"
-                      className="h-4 w-4 text-red-400 focus:ring-red-300 border-gray-300 rounded"
+                      className="h-4 w-4 text-red-400  focus:ring-red-300 border-gray-300 rounded"
                     />
                     <label
                       htmlFor="remember-me"
@@ -151,7 +156,7 @@ function LoginForm() {
                       href="#"
                       className="font-medium text-red-300 hover:text-red-500"
                     >
-                      Forgot your password?
+                      Zaboravili ste lozinku?
                     </a>
                   </div>
                 </div>
@@ -181,4 +186,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+

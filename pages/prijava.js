@@ -4,7 +4,9 @@ import Header from '../components/Header/Header';
 import LoginForm from '../components/LoginForm';
 
 
-export default function Prijava() {
+
+
+function Prijava() {
     
     return (
     
@@ -15,5 +17,5 @@ export default function Prijava() {
      </div>
     )
 }
-
+export default Prijava
 

@@ -5,6 +5,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 
+
 function RegistrationForm() {
     return (
        
@@ -84,7 +85,7 @@ function RegistrationForm() {
                     <input
                       id="email"
                       name="email"
-                      inputProps={{type: 'email'}}
+                      type="email"
                       autoComplete="email"
                       required
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-400 focus:border-red-300 sm:text-sm"
@@ -100,7 +101,7 @@ function RegistrationForm() {
                     <input
                       id="password"
                       name="password"
-                      inputProps={{type: 'password'}}
+                     type="password"
                       autoComplete="current-password"
                       required
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-400 focus:border-red-300 sm:text-sm "
