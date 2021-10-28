@@ -29,6 +29,9 @@ return  (
 
     <div className="justify-center text-1xl font-serif font-semibold">
     <h2>Vaš profil {user?.email}</h2>
+    <div>
+        Ovde stoji sadrzaj
+    </div>
     </div>
 
 <Footer/>
