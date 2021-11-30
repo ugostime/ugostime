@@ -4,7 +4,7 @@ import "../styles/globals.css"
 //import {Provider} from 'next-auth/client';
 //import { SessionProvider } from "next-auth/react";
 //import { AuthUserProvider} from "./api/authUserContext";
-import { AuthContext} from './auth';
+//import { AuthContext} from './auth';
 
 function App({ Component, pageProps }) {
   return(
@@ -12,10 +12,10 @@ function App({ Component, pageProps }) {
 //<Provider session ={pageProps.session}>
 //<SessionProvider session={session}>
 //<AuthUserProvider>
-<AuthContext.Provider>
+//<AuthContext.Provider>
 
 <Component {...pageProps} />
-</AuthContext.Provider>
+//</AuthContext.Provider>
 
 //</AuthUserProvider>
 
