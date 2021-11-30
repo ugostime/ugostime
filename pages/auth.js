@@ -1,13 +1,14 @@
-import { useState, useEffect, useContext, createContext } from "react";
+import React,{ useState, useEffect, useContext, createContext } from "react";
 import nookies from "nookies";
 import clientApp from "../firebase/clientApp";
 import firebase from "firebase/app";
 import { getAuth }from "firebase/auth"
 import "firebase/auth";
 
+
 const AuthContext = createContext({});
 
-export const AuthContextProvider = ({ children }) => {
+ const AuthContextProvider = ({ children }) => {
   //clientApp();
   const [user, setUser] = useState(null);
 
@@ -27,5 +28,6 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
   return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 };
+export default AuthContextProvider;
 
 export const useAuth = () => useContext(AuthContext);
