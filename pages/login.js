@@ -16,42 +16,47 @@ function Login() {
   const [loginEmail, setLoginEmail] = useState("");
   const router = useRouter();
 
-  const [user, setUser] = useState({});
+  const user= auth.currentUser;
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+ 
+      const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
   });
 
   const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
+    await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    .then((userCredential) => {
+      
+      // Signed in 
+      const user = userCredential.user;
       console.log(user);
 router.push('/')
 alert('Uspesno ste prijavljeni!')
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
-  const logout = async () => {
-    await signOut(auth);
-   
-  };
+ // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  }
+
+
 
   return (
       <div>
-          <Header/>
+          <Header title="Prijava"/>
     <div className="min-h-screen bg-white flex">
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
-     
-        <h4 className="text-2xl text-center font-extrabold grid-flow-col-dense p-5">Ulogovani korisnik:</h4>
-     <p className="text-1xl text-center"> {user?.email}</p>
-
+    
 
 
       <div>
@@ -114,14 +119,7 @@ alert('Uspesno ste prijavljeni!')
                     </p>
                     </div>
 
-    
-      <button
-        onClick={logout}
-        className="w-full flex justify-center py-2 px-4  shadow-sm text-sm border border-transparent font-medium rounded-full text-white bg-red-400 hover:bg-red-300 focus:ring-red-500  
-                    cursor-pointer hover:shadow-lg active:scale-95 active:bg-red-200 transition duration-100 ease-out;"
-      >
-        Odjavi se
-      </button>
+ 
       </div>
     </div>
     </div>

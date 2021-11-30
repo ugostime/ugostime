@@ -48,10 +48,10 @@ function Search ({searchResults}) {
             
             <a className="button">
               Cancellation Flexibility</a>
-            <p className="button">Type of Places</p>
-            <p className="button">Price</p>
-            <p className="button">Rooms and Beds</p>
-            <p className="button">More filters</p>
+            <p className="button">Tipovi smestaja</p>
+            <p className="button">Cena</p>
+            <p className="button">Sobe i kreveti</p>
+            <p className="button">Jos filtera</p>
           </div>
           
           <div   className="flex flex-col">

@@ -1,13 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { onAuthStateChanged, reload, updateProfile } from "@firebase/auth";
-import { auth } from "../../firebase/clientApp";
-import { useEffect } from "react";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import ProfileInfo from "../../components/ProfileInfo";
-
 import {
   CheckIcon,
   PaperClipIcon,
@@ -17,79 +8,32 @@ import {
 
 
 
-const slike= [
-  { name: 'Slika1', href: 'https://images.unsplash.com/photo-1517467139951-f5a925c9f9de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' },
-  { name: 'Slika2', href: 'https://images.unsplash.com/photo-1532372320572-cda25653a26d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' },
+const attachments = [
+  { name: 'Slika1', href: '#' },
+  { name: 'Slika2', href: '#' },
 ]
+const eventTypes = {
+  applied: { icon: UserIcon, bgColorClass: 'bg-gray-400' },
+  advanced: { icon: ThumbUpIcon, bgColorClass: 'bg-blue-500' },
+  completed: { icon: CheckIcon, bgColorClass: 'bg-green-500' },
+}
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
+export default function profileInfo() {
+  return (
+    <>
+      {/*
+        This example requires updating your template:
 
-
-
-export default function Dashboard(){
-
-   //const [user, setUser] = useState({});
-
-   // onAuthStateChanged(auth, (user) => {
-     // setUser(user);
-    //});
-  
-    const user = auth.currentUser;
-    const [,setUser] = useState();
-    const router = useRouter();
-    if (user !== null) {
-      // The user object has basic properties such as display name, email, etc.
-      const displayName = user.displayName;
-      const email = user.email;
-      const photoURL = user.photoURL;
-      const emailVerified = user.emailVerified;
-    
-      // The user's ID, unique to the Firebase project. Do NOT use
-      // this value to authenticate with your backend server, if
-      // you have one. Use User.getToken() instead.
-      const uid = user.uid;
-    }
-
-    
-
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      if(user){
-        
-    } else {
-    router.push('/login')
-    }
-    });
-/*
-    updateProfile(user, {
-      displayName: "Jana Petrovic", photoURL: 'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80'
-    }).then((response) => {
-      console.log(response)
-
-      
-     
-    }).catch((error) => {
-      console.log(error.message);
-      // An error occurred
-      // ...
-    });*/
-  /*
-    useEffect(() => {
-      if (!user)  {
-        router.push('/login')
-      }
-    }, [])*/
-
-    if(user){
-return  (
-    <div>
-<Header title={`${user?.displayName} - Profil` }/>
-
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-serif font-semibold m-4"  >
-    <h2>Vaš profil {user?.email}</h2>
- 
-
-    <div className="min-h-full">
+        ```
+        <html class="h-full bg-gray-100">
+        <body class="h-full">
+        ```
+      */}
+      <div className="min-h-full">
 
 <div className="py-10">
 {/* Page header */}
@@ -144,17 +88,17 @@ return  (
             </div>
            
             <div className="sm:col-span-2">
-              <dt className="text-sm font-medium text-gray-500">Sike</dt>
+              <dt className="text-sm font-medium text-gray-500">Attachments</dt>
               <dd className="mt-1 text-sm text-gray-900">
                 <ul role="list" className="border border-gray-200 rounded-md divide-y divide-gray-200">
-                  {slike.map((attachment) => (
+                  {attachments.map((attachment) => (
                     <li
                       key={attachment.name}
                       className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
                     >
                       <div className="w-0 flex-1 flex items-center">
                         <PaperClipIcon className="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
-                        <img src={attachment.href} className="h-40 w-120"></img>
+                        <span className="ml-2 flex-1 w-0 truncate">{attachment.name}</span>
                       </div>
                     
                     </li>
@@ -175,20 +119,6 @@ return  (
 </div>
 </div>
 </div>
-
-
-   
-
-<Footer/>
-    </div>
-    </div>
-)}
-
-else return (
-
-  <div>
-
-  </div>
+</>
 )
-
 }

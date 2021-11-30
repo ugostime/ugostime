@@ -329,11 +329,13 @@ const allProducts =  {
   ],
 };*/
 
+
+
 const InfoCard =({searchResults, searchMesto}) => {
   
   return (
     <div>
-     {searchResults.filter(product => product.location.toLowerCase().includes("london")).map(
+     {searchResults.filter(product => product.location.toLowerCase().includes('')).map(
               ( (filteredProduct, card_id) => (
      
        
@@ -382,6 +384,7 @@ const InfoCard =({searchResults, searchMesto}) => {
 };
 
 export default InfoCard;
+
 /*
 
 export const getServerSideProps = async () => {

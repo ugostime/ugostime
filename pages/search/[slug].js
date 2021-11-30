@@ -56,6 +56,7 @@ function SearchExample() {
                     key={image.imageId}
                     src={image.imageSrc}
                     alt={image.imageAlt}
+                    onClick={()=> window.open(image.imageSrc, '_self')}
                     className={classNames(
                       image.primary
                         ? "lg:col-span-2 lg:row-span-2"

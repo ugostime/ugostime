@@ -10,7 +10,7 @@ import { DateRange } from "react-date-range";
 import { useRouter } from "next/router";
 
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase/clientApp";
+import firebase, { auth } from "../../firebase/clientApp";
 import { signOut } from "firebase/auth";
 
 function classNames(...classes) {
@@ -25,7 +25,7 @@ const navigation = [
 ];
 
 function Header({ title, placeholder }) {
-  const [searchMesto, setSearchMesto] = useState("");
+  const [searchMesto, setSearchMesto] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
@@ -51,6 +51,8 @@ function Header({ title, placeholder }) {
     });
   };
 
+
+
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
@@ -69,8 +71,11 @@ function Header({ title, placeholder }) {
   });
 
   const logout = async () => {
-    await signOut(auth);
-  };
+    return await signOut(auth).then(()=>{
+      router.push('/')
+    }).catch((e)=>{
+      console.error(e)
+    })}
 
   const goToDashboard = async () => {
     try {
@@ -88,6 +93,7 @@ alert('Dobrodosli na vas profil!')
         router.push('/');
   };
 */
+
 
   return (
     <div className="flex-shrink-0 relative items-center z-50  sm:grid sm:grid-flow-col sm:grid-cols-1  bg-white shadow-md py-5 px-5 md:px-8">
@@ -212,13 +218,15 @@ alert('Dobrodosli na vas profil!')
                       <div>
                         <Menu.Button className="bg-red-300 flex text-sm rounded-full">
                           <span className="inline-block h-6 w-6 rounded-full overflow-hidden bg-gray-100">
-                            <svg
+                           {!user ? ( <svg
                               className="h-full w-full text-gray-300"
                               fill="currentColor"
                               viewBox="0 0 24 24"
                             >
                               <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
+                            </svg> ) : (
+                              <img src={user?.photoURL} className="h-full w-full rounded-full"></img>
+                            )}
                           </span>
                         </Menu.Button>
                       </div>
@@ -237,11 +245,11 @@ alert('Dobrodosli na vas profil!')
                             
                           {user?.email ? (
                         <>
-                          <div className="block px-4 py-2 ml-4 text-sm text-gray-700">
+                          <div className="block px-4 py-1 ml-4 text-sm text-gray-700">
                             Prijavljeni ste 
 <button type="button" onClick={goToDashboard} className={classNames(
                                       user?.email ? "bg-white-100" : "",
-                                      "block  py-2  text-sm text-gray-700 hover:bg-red-200")}>{[user.email]}</button>
+                                      "block  py-2  text-sm text-gray-700 hover:bg-red-200 hover:border hover:rounded-md")}>{[user?.email]}</button>
                           </div>
                           <div>
                             <button className={classNames(
@@ -258,21 +266,26 @@ alert('Dobrodosli na vas profil!')
                       ) : (
                         <>
                           <div className="block px-4 py-2 ml-4 text-sm text-gray-700 ">Niste Prijavljeni.</div>
-                          <Link href="/login">
-                            <a>
-                              <div>
-                                <button className={classNames(
-                                      user?.email ? "bg-gray-100 " : "",
-                                      "block px-4 py-2 ml-4 text-sm text-gray-700 hover:bg-gray-100")}
-                                  type="sumbit"
-                                >
-                                  Prijavite se
-                                </button>
-                              </div>
-                            </a>
-                          </Link>
+                         
                         </>
                       )}
+                          </Menu.Item>
+
+                          <Menu.Item>
+                            {({ active }) => (
+                              <div className="block px-4 py-2 text-sm text-gray-700">
+                                <Link href="/login">
+                                  <a
+                                    className={classNames(
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700"
+                                    )}
+                                  >
+                                    Prijavi me
+                                  </a>
+                                </Link>
+                              </div>
+                            )}
                           </Menu.Item>
 
                           <Menu.Item>
@@ -291,22 +304,7 @@ alert('Dobrodosli na vas profil!')
                               </div>
                             )}
                           </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <div className="block px-4 py-2 text-sm text-gray-700">
-                                <Link href="/login">
-                                  <a
-                                    className={classNames(
-                                      active ? "bg-gray-100" : "",
-                                      "block px-4 py-2 text-sm text-gray-700"
-                                    )}
-                                  >
-                                    Prijavi me
-                                  </a>
-                                </Link>
-                              </div>
-                            )}
-                          </Menu.Item>
+                         
                           <Menu.Item>
                             {({ active }) => (
                               <div className="block px-4 py-2 text-sm text-gray-700">
@@ -367,7 +365,7 @@ alert('Dobrodosli na vas profil!')
                 {user?.email ? (
                         <>
                           <div className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 ">
-                            Prijavljeni ste {user?.email}
+                          Prijavljeni ste <a href="/dashboard" className="hover:border hover:rounded-md hover:border-red-400 hover:bg-red-400 p-2 hover:text-white">  {user?.email} </a>
                           </div>
                           <div>
                             <button className={classNames(
@@ -384,19 +382,7 @@ alert('Dobrodosli na vas profil!')
                       ) : (
                         <>
                           <div className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 ">Niste Prijavljeni.</div>
-                          <Link href="/login">
-                            <a>
-                              <div>
-                                <button className={classNames(
-                                      user?.email ? "bg-gray-100 " : "",
-                                      "block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-red-400")}
-                                  type="sumbit"
-                                >
-                                  Prijavite se
-                                </button>
-                              </div>
-                            </a>
-                          </Link>
+                    
                         </>
                       )}
                   <Link href="/signup">

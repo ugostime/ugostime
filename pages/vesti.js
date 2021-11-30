@@ -6,7 +6,7 @@ import PromoSection from "../components/PromoSection";
 function vesti() {
     return (
         <div>
-            <Header />
+            <Header title="Vesti"/>
   <div>
       <BlogSection />
   </div>

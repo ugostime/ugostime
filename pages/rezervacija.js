@@ -6,7 +6,7 @@ import React, {useEffect} from 'react';
 export default function Rezervacija() {
     const router = useRouter();
   useEffect(() => {
-    router.push('/prijava');
+    router.push('/login');
       return true 
      
   }, [])
